@@ -19,3 +19,13 @@
 *.user
 *.dep
 *.manifest
+*.pdb
+*.obj
+*.exe
+*.idb
+flux.lib
+freetype2411.lib
+freetype2411_D.lib
+说明.txt
+Flux/lib/lua-5.2.1/Debug/*
+Flux/lib/lua-5.2.1/Release/*

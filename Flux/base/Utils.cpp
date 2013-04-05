@@ -2,6 +2,7 @@
 #include "Utils.h"
 
 int _linegap = 0;
+int _lineheight = 0;
 
 /*FontMode fontmode = COMPACT;
 
@@ -41,18 +42,31 @@ int GetLineGap()
 	return _linegap;
 }
 
+void SetLineHeight(int lineheight)
+{
+	_lineheight = lineheight;
+}
+
+int GetLineHeight()
+{
+	return _lineheight;
+}
+
+
 GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth)
 {
 	wstring str = __StringToWString(s);
 	int len = str.length();
 	int charHeight = f->CharHeight() + _linegap;
+	if (_lineheight) charHeight = _lineheight;
 	GlyphInfo* ret = new GlyphInfo();
+	ret->charnum = len;
 	ret->chs.resize(len);
 
 	int xoffset = 0;
 	int yoffset = 0;
 	int linenum = 1;
-	
+
 	for (int i=0;i<len;i++) {
 		FT_GlyphSlot ftGlyph = f->Glyph(f->GetCharIndex(str[i]));
 		int offset = ftGlyph->bitmap_left + ftGlyph->bitmap.width;
@@ -66,6 +80,9 @@ GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth)
 	xoffset = 0;
 	yoffset = charHeight*(linenum-1);
 	ILuint img = ImgNew(maxwidth, charHeight*linenum);
+
+	ret->width = maxwidth;
+	ret->height = charHeight*linenum;
 
 	for (int i=0;i<len;i++) {
 		uint index = f->GetCharIndex(str[i]);
@@ -90,10 +107,14 @@ GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth)
 		ret->chs[i] = new CharInfo();
 		ret->chs[i]->ch = (uint)(str[i]);
 		ret->chs[i]->index = index;
+
+		ret->chs[i]->top = Ascender-ftGlyph->bitmap_top;
+		ret->chs[i]->bottom = charHeight-ch->height-(Ascender-ftGlyph->bitmap_top);
 		ret->chs[i]->left = ftGlyph->bitmap_left;
+		ret->chs[i]->right = ftGlyph->advance.x/64.0f - ftGlyph->bitmap_left - ch->width;
+
 		ret->chs[i]->height = ch->height;
 		ret->chs[i]->width = ch->width;
-		ret->chs[i]->xadvance = ftGlyph->advance.x/64.0f - ftGlyph->bitmap_left - ch->width;
 		ret->chs[i]->x = xoffset;
 		ret->chs[i]->y = y;
 

@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\objs\release"
+			OutputDirectory=".\..\..\..\objs\"
 			IntermediateDirectory=".\..\..\..\objs\release"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -71,7 +71,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\..\objs\win32\vc2008\freetype2411.lib"
+				OutputFile="..\..\..\objs\freetype2411.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -241,7 +241,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\objs\debug"
+			OutputDirectory=".\..\..\..\objs\"
 			IntermediateDirectory=".\..\..\..\objs\debug"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"

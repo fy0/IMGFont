@@ -255,6 +255,10 @@
 				RelativePath=".\script\lua_script.h"
 				>
 			</File>
+			<File
+				RelativePath=".\lua_struct.c"
+				>
+			</File>
 			<Filter
 				Name="interface"
 				>

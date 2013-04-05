@@ -7,6 +7,7 @@ lua_State* LuaScript::L = NULL;
 extern "C"
 {
 	int luaopen_flux(lua_State* L);
+	int luaopen_struct(lua_State* L);
 }
 
 void LuaScript::LoadFile(const string& fn)
@@ -26,6 +27,7 @@ void LuaScript::Init()
 	L = luaL_newstate();
 	lua_gc(L, LUA_GCSTOP, 0);
 	luaL_openlibs(L);
+	luaL_requiref(L, "struct", luaopen_struct, 1);
 	luaopen_flux(L);
 	lua_gc(L, LUA_GCRESTART, 0);
 	

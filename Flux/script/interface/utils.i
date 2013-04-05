@@ -6,10 +6,13 @@ typedef struct CharInfo {
 	uint index;
 	int x;
 	int y;
-	int left;
 	int width;
 	int height;
-	int xadvance;
+
+	int left;
+	int right;
+	int top;
+	int bottom;
 } CharInfo;
 
 %{
@@ -46,6 +49,9 @@ void lua_pushcharinfo(lua_State *L, void*ptr)
 
 typedef struct GlyphInfo {
 	ILuint img;
+	int width;
+	int height;
+	int charnum;
 	int linenum;
 	//vector<CharInfo> chs;
 } GlyphInfo;
@@ -58,3 +64,6 @@ GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth);
 
 void SetLineGap(int linegap);
 int GetLineGap();
+
+void SetLineHeight(int lineheight);
+int GetLineHeight();

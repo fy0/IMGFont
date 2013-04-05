@@ -3111,56 +3111,6 @@ fail:
 }
 
 
-static int _wrap_CharInfo_left_set(lua_State* L) {
-  int SWIG_arg = 0;
-  CharInfo *arg1 = (CharInfo *) 0 ;
-  int arg2 ;
-  
-  SWIG_check_num_args("CharInfo::left",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::left",1,"CharInfo *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::left",2,"int");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
-    SWIG_fail_ptr("CharInfo_left_set",1,SWIGTYPE_p_CharInfo);
-  }
-  
-  arg2 = (int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->left = arg2;
-  
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
-static int _wrap_CharInfo_left_get(lua_State* L) {
-  int SWIG_arg = 0;
-  CharInfo *arg1 = (CharInfo *) 0 ;
-  int result;
-  
-  SWIG_check_num_args("CharInfo::left",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::left",1,"CharInfo *");
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
-    SWIG_fail_ptr("CharInfo_left_get",1,SWIGTYPE_p_CharInfo);
-  }
-  
-  result = (int) ((arg1)->left);
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg;
-  
-  if(0) SWIG_fail;
-  
-fail:
-  lua_error(L);
-  return SWIG_arg;
-}
-
-
 static int _wrap_CharInfo_width_set(lua_State* L) {
   int SWIG_arg = 0;
   CharInfo *arg1 = (CharInfo *) 0 ;
@@ -3261,21 +3211,21 @@ fail:
 }
 
 
-static int _wrap_CharInfo_xadvance_set(lua_State* L) {
+static int _wrap_CharInfo_left_set(lua_State* L) {
   int SWIG_arg = 0;
   CharInfo *arg1 = (CharInfo *) 0 ;
   int arg2 ;
   
-  SWIG_check_num_args("CharInfo::xadvance",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::xadvance",1,"CharInfo *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::xadvance",2,"int");
+  SWIG_check_num_args("CharInfo::left",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::left",1,"CharInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::left",2,"int");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
-    SWIG_fail_ptr("CharInfo_xadvance_set",1,SWIGTYPE_p_CharInfo);
+    SWIG_fail_ptr("CharInfo_left_set",1,SWIGTYPE_p_CharInfo);
   }
   
   arg2 = (int)lua_tonumber(L, 2);
-  if (arg1) (arg1)->xadvance = arg2;
+  if (arg1) (arg1)->left = arg2;
   
   return SWIG_arg;
   
@@ -3287,19 +3237,169 @@ fail:
 }
 
 
-static int _wrap_CharInfo_xadvance_get(lua_State* L) {
+static int _wrap_CharInfo_left_get(lua_State* L) {
   int SWIG_arg = 0;
   CharInfo *arg1 = (CharInfo *) 0 ;
   int result;
   
-  SWIG_check_num_args("CharInfo::xadvance",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::xadvance",1,"CharInfo *");
+  SWIG_check_num_args("CharInfo::left",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::left",1,"CharInfo *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
-    SWIG_fail_ptr("CharInfo_xadvance_get",1,SWIGTYPE_p_CharInfo);
+    SWIG_fail_ptr("CharInfo_left_get",1,SWIGTYPE_p_CharInfo);
   }
   
-  result = (int) ((arg1)->xadvance);
+  result = (int) ((arg1)->left);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_right_set(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("CharInfo::right",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::right",1,"CharInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::right",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_right_set",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->right = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_right_get(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("CharInfo::right",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::right",1,"CharInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_right_get",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  result = (int) ((arg1)->right);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_top_set(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("CharInfo::top",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::top",1,"CharInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::top",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_top_set",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->top = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_top_get(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("CharInfo::top",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::top",1,"CharInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_top_get",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  result = (int) ((arg1)->top);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_bottom_set(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("CharInfo::bottom",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::bottom",1,"CharInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("CharInfo::bottom",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_bottom_set",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->bottom = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_CharInfo_bottom_get(lua_State* L) {
+  int SWIG_arg = 0;
+  CharInfo *arg1 = (CharInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("CharInfo::bottom",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("CharInfo::bottom",1,"CharInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_CharInfo,0))){
+    SWIG_fail_ptr("CharInfo_bottom_get",1,SWIGTYPE_p_CharInfo);
+  }
+  
+  result = (int) ((arg1)->bottom);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -3340,10 +3440,12 @@ static swig_lua_attribute swig_CharInfo_attributes[] = {
     { "index", _wrap_CharInfo_index_get, _wrap_CharInfo_index_set},
     { "x", _wrap_CharInfo_x_get, _wrap_CharInfo_x_set},
     { "y", _wrap_CharInfo_y_get, _wrap_CharInfo_y_set},
-    { "left", _wrap_CharInfo_left_get, _wrap_CharInfo_left_set},
     { "width", _wrap_CharInfo_width_get, _wrap_CharInfo_width_set},
     { "height", _wrap_CharInfo_height_get, _wrap_CharInfo_height_set},
-    { "xadvance", _wrap_CharInfo_xadvance_get, _wrap_CharInfo_xadvance_set},
+    { "left", _wrap_CharInfo_left_get, _wrap_CharInfo_left_set},
+    { "right", _wrap_CharInfo_right_get, _wrap_CharInfo_right_set},
+    { "top", _wrap_CharInfo_top_get, _wrap_CharInfo_top_set},
+    { "bottom", _wrap_CharInfo_bottom_get, _wrap_CharInfo_bottom_set},
     {0,0,0}
 };
 static swig_lua_class *swig_CharInfo_bases[] = {0};
@@ -3390,6 +3492,156 @@ static int _wrap_GlyphInfo_img_get(lua_State* L) {
   }
   
   result = (ILuint) ((arg1)->img);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_width_set(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("GlyphInfo::width",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::width",1,"GlyphInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("GlyphInfo::width",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_width_set",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->width = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_width_get(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("GlyphInfo::width",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::width",1,"GlyphInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_width_get",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  result = (int) ((arg1)->width);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_height_set(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("GlyphInfo::height",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::height",1,"GlyphInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("GlyphInfo::height",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_height_set",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->height = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_height_get(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("GlyphInfo::height",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::height",1,"GlyphInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_height_get",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  result = (int) ((arg1)->height);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_charnum_set(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int arg2 ;
+  
+  SWIG_check_num_args("GlyphInfo::charnum",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::charnum",1,"GlyphInfo *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("GlyphInfo::charnum",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_charnum_set",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->charnum = arg2;
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GlyphInfo_charnum_get(lua_State* L) {
+  int SWIG_arg = 0;
+  GlyphInfo *arg1 = (GlyphInfo *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("GlyphInfo::charnum",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("GlyphInfo::charnum",1,"GlyphInfo *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_GlyphInfo,0))){
+    SWIG_fail_ptr("GlyphInfo_charnum_get",1,SWIGTYPE_p_GlyphInfo);
+  }
+  
+  result = (int) ((arg1)->charnum);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -3518,6 +3770,9 @@ static swig_lua_method swig_GlyphInfo_methods[] = {
 };
 static swig_lua_attribute swig_GlyphInfo_attributes[] = {
     { "img", _wrap_GlyphInfo_img_get, _wrap_GlyphInfo_img_set},
+    { "width", _wrap_GlyphInfo_width_get, _wrap_GlyphInfo_width_set},
+    { "height", _wrap_GlyphInfo_height_get, _wrap_GlyphInfo_height_set},
+    { "charnum", _wrap_GlyphInfo_charnum_get, _wrap_GlyphInfo_charnum_set},
     { "linenum", _wrap_GlyphInfo_linenum_get, _wrap_GlyphInfo_linenum_set},
     {0,0,0}
 };
@@ -3592,6 +3847,42 @@ fail:
 }
 
 
+static int _wrap_SetLineHeight(lua_State* L) {
+  int SWIG_arg = 0;
+  int arg1 ;
+  
+  SWIG_check_num_args("SetLineHeight",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("SetLineHeight",1,"int");
+  arg1 = (int)lua_tonumber(L, 1);
+  SetLineHeight(arg1);
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_GetLineHeight(lua_State* L) {
+  int SWIG_arg = 0;
+  int result;
+  
+  SWIG_check_num_args("GetLineHeight",0,0)
+  result = (int)GetLineHeight();
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 #ifdef __cplusplus
 }
 #endif
@@ -3607,6 +3898,8 @@ static const struct luaL_Reg swig_commands[] = {
     { "MakeGlyph", _wrap_MakeGlyph},
     { "SetLineGap", _wrap_SetLineGap},
     { "GetLineGap", _wrap_GetLineGap},
+    { "SetLineHeight", _wrap_SetLineHeight},
+    { "GetLineHeight", _wrap_GetLineHeight},
     {0,0}
 };
 
