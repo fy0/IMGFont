@@ -110,10 +110,8 @@ CharBitmap* GetBitmap(FT_GlyphSlot glyph)
 		pBuf[i+3] = bgcolor.A;
 	}
 
-    for(int j=0; j  < height ; j++)
-    {
-        for(int i=0; i < width; i++)
-        {
+    for(int j=0; j  < height ; j++) {
+        for(int i=0; i < width; i++) {
             unsigned char _vl =  (i>=bitmap.width || j>=bitmap.rows) ? 0 : bitmap.buffer[i + bitmap.width*j];
 			if (_vl) {
 				pBuf[(4*i + (height - j - 1) * width * 4)  ] = fontcolor.R;

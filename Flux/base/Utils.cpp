@@ -53,7 +53,7 @@ int GetLineHeight()
 }
 
 
-GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth)
+GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth, int maxheight)
 {
 	wstring str = __StringToWString(s);
 	int len = str.length();
@@ -79,7 +79,7 @@ GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth)
 
 	xoffset = 0;
 	yoffset = charHeight*(linenum-1);
-	ILuint img = ImgNew(maxwidth, charHeight*linenum);
+	ILuint img = ImgNew(maxwidth, maxheight ? maxheight : charHeight*linenum);
 
 	ret->width = maxwidth;
 	ret->height = charHeight*linenum;

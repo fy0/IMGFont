@@ -60,7 +60,7 @@ typedef struct GlyphInfo {
 	std::vector<CharInfo*> getchs() {return $self->chs;}
 };
 
-GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth);
+GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth, int maxheight=0);
 
 void SetLineGap(int linegap);
 int GetLineGap();

@@ -108,3 +108,8 @@ typedef long long unsigned int ILuint64;
 #define IL_DPX			0x0450  //!< Digital Picture Exchange - .dpx extension
 #define IL_UTX			0x0451  //!< Unreal (and Unreal Tournament) Texture - .utx extension
 #define IL_MP3			0x0452  //!< MPEG-1 Audio Layer 3 - .mp3 extension
+
+#define IL_PVR			0x0480
+#define IL_PVR_RGBA2	0x047F
+#define IL_PVR_RGBA4	0x0480
+#define IL_PVR_RGBA8	0x0481

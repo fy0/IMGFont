@@ -94,8 +94,88 @@ ILuint ImgNew(int width, int height, byte* data, int channel, int Format)
 void ImgSave(ILuint imgID, ILenum fileformat, const string& filename)
 {
 	ilBindImage(imgID);
-	ilEnable(IL_FILE_OVERWRITE);
-	ilSave(fileformat, filename.c_str()) ;
+	if (fileformat >= IL_PVR_RGBA2 && fileformat <= IL_PVR_RGBA8) {
+		ILubyte *data = ilGetData();
+		int width = ilGetInteger(IL_IMAGE_WIDTH);
+		int height = ilGetInteger(IL_IMAGE_HEIGHT);
+
+		int fileLength;
+		byte* _data;
+		byte* header2;
+		byte* header3;
+
+		byte header1[] = {0x34, 0x00, 0x00, 0x00};
+
+		byte header2_RGBA8[] = {0x00, 0x00, 0x00, 0x00, 0x12, 0x80, 0x00, 0x00};
+		byte header3_RGBA8[] = {0x20, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00,
+								0x00, 0xFF, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00,
+								0x00, 0x00, 0x00, 0xFF, 0x50, 0x56, 0x52, 0x21,
+								0x01, 0x00, 0x00, 0x00};
+
+		byte header2_RGBA4[] = {0x00, 0x00, 0x00, 0x00, 0x10, 0x80, 0x00, 0x00};
+		byte header3_RGBA4[] = {0x10, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x00, 0x00,
+								0x00, 0x0F, 0x00, 0x00, 0xF0, 0x00, 0x00, 0x00,
+								0x0F, 0x00, 0x00, 0x00, 0x50, 0x56, 0x52, 0x21,
+								0x01, 0x00, 0x00, 0x00};
+
+		byte header2_RGBA2[] = {0x00, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00};
+		byte header3_RGBA2[] = {0x08, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00,
+								0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00,
+								0x00, 0x00, 0x00, 0x00, 0x50, 0x56, 0x52, 0x21,
+								0x01, 0x00, 0x00, 0x00};
+
+		if (fileformat == IL_PVR_RGBA8) {
+			fileLength = width*height*4;
+			_data = (byte*)malloc(fileLength);
+			header2 = header2_RGBA8;
+			header3 = header3_RGBA8;
+
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
+					_data[4*(width*i+j)    ] = data[4*(width*(height-i-1)+j)    ];
+					_data[4*(width*i+j) + 1] = data[4*(width*(height-i-1)+j) + 1];
+					_data[4*(width*i+j) + 2] = data[4*(width*(height-i-1)+j) + 2];
+					_data[4*(width*i+j) + 3] = data[4*(width*(height-i-1)+j) + 3];
+				}
+			}
+		} else if (fileformat == IL_PVR_RGBA4) {
+			fileLength = width*height*2;
+			_data = (byte*)malloc(fileLength);
+			header2 = header2_RGBA4;
+			header3 = header3_RGBA4;
+
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
+					_data[2*(i*width+j)    ] = (data[4*(width*(height-i-1)+j)    ] & 0xF0) | (data[4*(width*(height-i-1)+j) + 3] >> 4);
+					_data[2*(i*width+j) + 1] = (data[4*(width*(height-i-1)+j) + 2] & 0xF0) | (data[4*(width*(height-i-1)+j) + 1] >> 4);
+				}
+			}
+		} else if (fileformat == IL_PVR_RGBA2) {
+			fileLength = width*height;
+			_data = (byte*)malloc(fileLength);
+			header2 = header2_RGBA2;
+			header3 = header3_RGBA2;
+
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
+					_data[(i*width+j)] = data[4*(width*(height-i-1)+j)];
+				}
+			}
+		}
+
+		FILE* fp = fopen(filename.c_str(), "wb+");
+		fwrite(header1, 4, 1, fp);
+		fwrite(&height, 4, 1, fp);
+		fwrite(&width, 4, 1, fp);
+		fwrite(header2, 8, 1, fp);
+		fwrite(&fileLength, 4, 1, fp);
+		fwrite(header3, 28, 1, fp);
+		fwrite(_data, fileLength, 1, fp);
+		fclose(fp);
+	} else {
+		ilEnable(IL_FILE_OVERWRITE);
+		ilSave(fileformat, filename.c_str()) ;
+	}
 }
 
 void SetBackgroundColor(int R, int G, int B, int A)

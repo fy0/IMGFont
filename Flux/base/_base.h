@@ -18,6 +18,8 @@
 #include "IL/ilut.h"
 #define _UNICODE 1
 
+#include <iconv.h> 
+
 #include "string.h"
 
 #include <set>
@@ -38,5 +40,10 @@ using std::wstring;
 
 #define byte unsigned char
 #define uint unsigned int
+
+#define IL_PVR			0x0480
+#define IL_PVR_RGBA2	0x047F
+#define IL_PVR_RGBA4	0x0480
+#define IL_PVR_RGBA8	0x0481
 
 #endif

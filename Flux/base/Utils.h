@@ -36,7 +36,7 @@ typedef struct GlyphInfo {
 	vector<CharInfo*> chs;
 } GlyphInfo;
 
-GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth);
+GlyphInfo* MakeGlyph(FT2Font *f, const string& s, int maxwidth, int maxheight=0);
 
 void SetLineGap(int linegap);
 int GetLineGap();

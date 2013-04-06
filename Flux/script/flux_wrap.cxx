@@ -3780,7 +3780,41 @@ static swig_lua_class *swig_GlyphInfo_bases[] = {0};
 static const char *swig_GlyphInfo_base_names[] = {0};
 static swig_lua_class _wrap_class_GlyphInfo = { "GlyphInfo", &SWIGTYPE_p_GlyphInfo,_wrap_new_GlyphInfo, swig_delete_GlyphInfo, swig_GlyphInfo_methods, swig_GlyphInfo_attributes, swig_GlyphInfo_bases, swig_GlyphInfo_base_names };
 
-static int _wrap_MakeGlyph(lua_State* L) {
+static int _wrap_MakeGlyph__SWIG_0(lua_State* L) {
+  int SWIG_arg = 0;
+  FT2Font *arg1 = (FT2Font *) 0 ;
+  string *arg2 = 0 ;
+  int arg3 ;
+  int arg4 ;
+  string temp2 ;
+  GlyphInfo *result = 0 ;
+  
+  SWIG_check_num_args("MakeGlyph",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MakeGlyph",1,"FT2Font *");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("MakeGlyph",2,"string const &");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("MakeGlyph",3,"int");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("MakeGlyph",4,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_FT2Font,0))){
+    SWIG_fail_ptr("MakeGlyph",1,SWIGTYPE_p_FT2Font);
+  }
+  
+  temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
+  arg3 = (int)lua_tonumber(L, 3);
+  arg4 = (int)lua_tonumber(L, 4);
+  result = (GlyphInfo *)MakeGlyph(arg1,(std::string const &)*arg2,arg3,arg4);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_GlyphInfo,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
+static int _wrap_MakeGlyph__SWIG_1(lua_State* L) {
   int SWIG_arg = 0;
   FT2Font *arg1 = (FT2Font *) 0 ;
   string *arg2 = 0 ;
@@ -3808,6 +3842,75 @@ static int _wrap_MakeGlyph(lua_State* L) {
 fail:
   lua_error(L);
   return SWIG_arg;
+}
+
+
+static int _wrap_MakeGlyph(lua_State* L) {
+  int argc;
+  int argv[5]={
+    1,2,3,4,5
+  };
+  
+  argc = lua_gettop(L);
+  if (argc == 3) {
+    int _v;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FT2Font, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isstring(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          return _wrap_MakeGlyph__SWIG_1(L);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    {
+      void *ptr;
+      if (SWIG_isptrtype(L,argv[0])==0 || SWIG_ConvertPtr(L,argv[0], (void **) &ptr, SWIGTYPE_p_FT2Font, 0)) {
+        _v = 0;
+      } else {
+        _v = 1;
+      }
+    }
+    if (_v) {
+      {
+        _v = lua_isstring(L,argv[1]);
+      }
+      if (_v) {
+        {
+          _v = lua_isnumber(L,argv[2]);
+        }
+        if (_v) {
+          {
+            _v = lua_isnumber(L,argv[3]);
+          }
+          if (_v) {
+            return _wrap_MakeGlyph__SWIG_0(L);
+          }
+        }
+      }
+    }
+  }
+  
+  lua_pushstring(L,"Wrong arguments for overloaded function 'MakeGlyph'\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    MakeGlyph(FT2Font *,string const &,int,int)\n"
+    "    MakeGlyph(FT2Font *,string const &,int)\n");
+  lua_error(L);return 0;
 }
 
 
@@ -3895,7 +3998,7 @@ static const struct luaL_Reg swig_commands[] = {
     { "SetFontColor",_wrap_SetFontColor},
     { "GetBackgroundColor", _wrap_GetBackgroundColor},
     { "GetFontColor", _wrap_GetFontColor},
-    { "MakeGlyph", _wrap_MakeGlyph},
+    { "MakeGlyph",_wrap_MakeGlyph},
     { "SetLineGap", _wrap_SetLineGap},
     { "GetLineGap", _wrap_GetLineGap},
     { "SetLineHeight", _wrap_SetLineHeight},
@@ -3972,6 +4075,10 @@ static swig_lua_const_info swig_constants[] = {
     {SWIG_LUA_CONSTTAB_INT("IL_DPX", 0x0450)},
     {SWIG_LUA_CONSTTAB_INT("IL_UTX", 0x0451)},
     {SWIG_LUA_CONSTTAB_INT("IL_MP3", 0x0452)},
+    {SWIG_LUA_CONSTTAB_INT("IL_PVR", 0x0480)},
+    {SWIG_LUA_CONSTTAB_INT("IL_PVR_RGBA2", 0x047F)},
+    {SWIG_LUA_CONSTTAB_INT("IL_PVR_RGBA4", 0x0480)},
+    {SWIG_LUA_CONSTTAB_INT("IL_PVR_RGBA8", 0x0481)},
     {0,0,0,0,0,0}
 };
 
